@@ -3,110 +3,129 @@ package datastr;
 public class MyBST<Ttype> {
 	private MyTreeNode root = null;
 	private int counter = 0;
-	
-	//pēc noklusējuma jau būs bezargumenta konstruktors
-	
+
+	// pēc noklusējuma jau būs bezargumenta konstruktors
+
 	public boolean isEmpty() {
-		return (counter==0);
+		return (counter == 0);
 	}
-	
+
 	public int howManyElements() {
 		return counter;
 	}
-	
+
 	public void insert(Ttype element) {
-		
-		if(isEmpty())
-		{
+
+		if (isEmpty()) {
 			root = new MyTreeNode(element);
 			counter++;
 		}
-			
-		else
-		{
-			//izsaukt rekursīvo funkciju pirmo reizi
-			insertHelpRecursive(root  ,element);
+
+		else {
+			// izsaukt rekursīvo funkciju pirmo reizi
+			insertHelpRecursive(root, element);
 		}
-	
+
 	}
-	
-	private void insertHelpRecursive(MyTreeNode tempNode,
-			Ttype element) {
-		//apakškoka sakne ir lielāks par elementu
-		if(
-		((Comparable)tempNode.getElement()).compareTo(element) == 1)
-		{
-			//kreisais bērns neeksistē
-			if(tempNode.getLeftChild() == null)
-			{
+
+	private void insertHelpRecursive(MyTreeNode tempNode, Ttype element) {
+		// apakškoka sakne ir lielāks par elementu
+		if (((Comparable) tempNode.getElement()).compareTo(element) == 1) {
+			// kreisais bērns neeksistē
+			if (tempNode.getLeftChild() == null) {
 				MyTreeNode newNode = new MyTreeNode(element);
 				tempNode.setLeftChild(newNode);
 				newNode.setParent(tempNode);
 				counter++;
-			}//kreisais bērns eksistē
-			else
-			{
+			} // kreisais bērns eksistē
+			else {
 				insertHelpRecursive(tempNode.getLeftChild(), element);
 			}
 		}
-		//saknes elements ir mazaks par element
-		else if(
-		((Comparable)tempNode.getElement()).compareTo(element) == -1) {
-			//labais bērns neeksistē
-			if(tempNode.getRightChild() == null) {
+		// saknes elements ir mazaks par element
+		else if (((Comparable) tempNode.getElement()).compareTo(element) == -1) {
+			// labais bērns neeksistē
+			if (tempNode.getRightChild() == null) {
 				MyTreeNode newNode = new MyTreeNode(element);
 				tempNode.setRightChild(newNode);
 				newNode.setParent(tempNode);
 				counter++;
 			}
-			//labais berns jau eksistē
-			else
-			{
+			// labais berns jau eksistē
+			else {
 				insertHelpRecursive(tempNode.getRightChild(), element);
 			}
 		}
-		//šāds elements jau eksistē
-		else
-		{
+		// šāds elements jau eksistē
+		else {
 			System.out.println("Šāds elements jau eksistē BST");
 		}
 	}
 
-	public void print()  throws Exception{
-		if(isEmpty()) throw new Exception("Koks ir tukšs");
-		
-		//izsaukt rekursīvo printešanas funkciju
+	public void print() throws Exception {
+		if (isEmpty())
+			throw new Exception("Koks ir tukšs");
+
+		// izsaukt rekursīvo printešanas funkciju
 		printHelpRecursivePreOrder(root);
 	}
-	
-	//TODO izveidot mājās arī PostOrder un InOrder
+
+	// TODO izveidot mājās arī PostOrder un InOrder
 	private void printHelpRecursivePreOrder(MyTreeNode tempNode) {
-		//Root - Left - Right
-		
-		//ROOT
-		System.out.print("P: " +tempNode.getElement());
-		
-		//LEFT
-		//ja eksiste kreisais bērns
-		if(tempNode.getLeftChild() != null)
-		{
-			System.out.print(" -> LC: " 
-					+ tempNode.getLeftChild().getElement()
-					+ " [" + tempNode.getElement() + "];");
+		// Root - Left - Right
+
+		// ROOT
+		System.out.print("P: " + tempNode.getElement());
+
+		// LEFT
+		// ja eksiste kreisais bērns
+		if (tempNode.getLeftChild() != null) {
+			System.out.print(" -> LC: " + tempNode.getLeftChild().getElement() + " [" + tempNode.getElement() + "];");
 			printHelpRecursivePreOrder(tempNode.getLeftChild());
 		}
-		
-		//RIGHT
-		//ja eksistē labais bērns
-		if(tempNode.getRightChild() != null)
-		{
-			System.out.print(" -> RC: " 
-					+ tempNode.getRightChild().getElement()
-					+ " [" + tempNode.getElement() + "];");
+
+		// RIGHT
+		// ja eksistē labais bērns
+		if (tempNode.getRightChild() != null) {
+			System.out.print(" -> RC: " + tempNode.getRightChild().getElement() + " [" + tempNode.getElement() + "];");
 			printHelpRecursivePreOrder(tempNode.getRightChild());
 		}
 	}
-	
-	
+
+	// TODO
+	// izveiot search funkcijas deklaracijau
+	public boolean search(Ttype element) throws Exception {
+		// pārbaude vai nav tukšs
+		if (isEmpty())
+			throw new Exception("Koks ir tukšs un nevar veikt meklēšanu");
+
+		return searchHelpRecursive(root, element);
+	}
+
+	private boolean searchHelpRecursive(MyTreeNode tempNode, Ttype element) {
+		if (tempNode.getElement().equals(element))
+			return true;
+		// apakškoka sakne ir lielāks par elementu
+		if (
+	((Comparable) tempNode.getElement()).compareTo(element) == 1) {
+			//ja kreisais bērns eksistē
+			if (tempNode.getLeftChild() != null) 
+			{
+				return searchHelpRecursive(tempNode.getLeftChild(), element);
+			}
+		}
+		// saknes elements ir mazaks par element
+		else if (
+	((Comparable) tempNode.getElement()).compareTo(element) == -1) {
+			//ja labais bērns eksistē
+			if (tempNode.getRightChild() != null) 
+			{
+				return searchHelpRecursive(tempNode.getRightChild(), element);
+			}
+		}
+		
+		return false;
+
+	}
 
 }
