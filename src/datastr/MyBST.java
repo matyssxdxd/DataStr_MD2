@@ -16,8 +16,12 @@ public class MyBST<Ttype> {
 	
 	public void insert(Ttype element) {
 		
-		if(isEmpty()) root = new MyTreeNode(element);
-		
+		if(isEmpty())
+		{
+			root = new MyTreeNode(element);
+			counter++;
+		}
+			
 		else
 		{
 			//izsaukt rekursīvo funkciju pirmo reizi
@@ -88,7 +92,7 @@ public class MyBST<Ttype> {
 		{
 			System.out.print(" -> LC: " 
 					+ tempNode.getLeftChild().getElement()
-					+ " [ " + tempNode.getElement() + "]");
+					+ " [" + tempNode.getElement() + "];");
 			printHelpRecursivePreOrder(tempNode.getLeftChild());
 		}
 		
@@ -98,7 +102,7 @@ public class MyBST<Ttype> {
 		{
 			System.out.print(" -> RC: " 
 					+ tempNode.getRightChild().getElement()
-					+ " [ " + tempNode.getElement() + "]");
+					+ " [" + tempNode.getElement() + "];");
 			printHelpRecursivePreOrder(tempNode.getRightChild());
 		}
 	}
