@@ -127,5 +127,96 @@ public class MyBST<Ttype> {
 		return false;
 
 	}
+	
+	
+	public void delete(Ttype element) throws Exception{
+		if (isEmpty())
+			throw new Exception("Koks ir tukšs un nevar veikt dzēšanu");
+
+		//TODO pārliecināties, ka ir tikai root!
+		//izsaukt rekurtsīvo dzēšanas funkciju
+		deleteHelpRecursive(root, element);
+		
+	}
+	
+	private void deleteHelpRecursive(MyTreeNode tempNode, Ttype element ) {
+		//esam nonakusi līdz elementam, kuri gribam dzēst
+		if (tempNode.getElement().equals(element))
+		{
+			//1. dzēšamais mezgls ir lapa
+			if(tempNode.getLeftChild()==null
+					&& tempNode.getRightChild()==null)
+			{
+				MyTreeNode parent = tempNode.getParent();
+				//no vecaka puses noskaidroju, ka sis ir kreisais bērns
+				if(parent.getLeftChild().getElement().equals(element))
+					parent.setLeftChild(null);
+				
+				//no vecaka puses noskaidroju, ka sis ir labais bērns
+				else if(parent.getRightChild().getElement().equals(element))
+					parent.setRightChild(null);
+				
+			}
+			
+			//2. dzešamais mezgls ir ar vienu bērnu
+			//2.1.ir tikai kreisais bērns
+			else if(tempNode.getLeftChild()!=null
+					&& tempNode.getRightChild()==null)
+			{
+				MyTreeNode parent = tempNode.getParent();
+				MyTreeNode leftChild = tempNode.getLeftChild();
+				parent.setLeftChild(leftChild);
+				leftChild.setParent(parent);
+			}
+			//2.2.ir tikai labais bērns
+			else if(tempNode.getLeftChild()==null
+					&& tempNode.getRightChild()!=null)
+			{
+				MyTreeNode parent = tempNode.getParent();
+				MyTreeNode rightChild = tempNode.getRightChild();
+				parent.setRightChild(rightChild);
+				rightChild.setParent(parent);
+			}
+			else if(tempNode.getLeftChild()!=null
+					&& tempNode.getRightChild()!=null)
+			{
+				//iet pa labo pusi un sameklē kreisāko bērnu
+				//TODO vai eksistē labias bērns root elementam
+				MyTreeNode temp2 = root.getRightChild();
+				while(temp2!=null)
+				{
+					temp2 = temp2.getLeftChild();
+				}
+				//temp2 - būs ar to vērtību, kas ir jāieliek ieks tempNode
+				
+			}
+			
+			
+			//3. džēšajama mezgls ir abi bērni
+		}
+		// apakškoka sakne ir lielāks par elementu
+		if (
+	((Comparable) tempNode.getElement()).compareTo(element) == 1) {
+			//ja kreisais bērns eksistē
+			if (tempNode.getLeftChild() != null) 
+			{
+				deleteHelpRecursive(tempNode.getLeftChild(), element);
+			}
+		}
+		// saknes elements ir mazaks par element
+		else if (
+	((Comparable) tempNode.getElement()).compareTo(element) == -1) {
+			//ja labais bērns eksistē
+			if (tempNode.getRightChild() != null) 
+			{
+				deleteHelpRecursive(tempNode.getRightChild(), element);
+			}
+		}
+		
+
+	}
+	
+	
+	
 
 }
