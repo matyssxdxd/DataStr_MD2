@@ -66,10 +66,43 @@ public class MyBST<Ttype> {
 		{
 			System.out.println("Šāds elements jau eksistē BST");
 		}
-			
-		
-		
 	}
+
+	public void print()  throws Exception{
+		if(isEmpty()) throw new Exception("Koks ir tukšs");
+		
+		//izsaukt rekursīvo printešanas funkciju
+		printHelpRecursivePreOrder(root);
+	}
+	
+	//TODO izveidot mājās arī PostOrder un InOrder
+	private void printHelpRecursivePreOrder(MyTreeNode tempNode) {
+		//Root - Left - Right
+		
+		//ROOT
+		System.out.print("P: " +tempNode.getElement());
+		
+		//LEFT
+		//ja eksiste kreisais bērns
+		if(tempNode.getLeftChild() != null)
+		{
+			System.out.print(" -> LC: " 
+					+ tempNode.getLeftChild().getElement()
+					+ " [ " + tempNode.getElement() + "]");
+			printHelpRecursivePreOrder(tempNode.getLeftChild());
+		}
+		
+		//RIGHT
+		//ja eksistē labais bērns
+		if(tempNode.getRightChild() != null)
+		{
+			System.out.print(" -> RC: " 
+					+ tempNode.getRightChild().getElement()
+					+ " [ " + tempNode.getElement() + "]");
+			printHelpRecursivePreOrder(tempNode.getRightChild());
+		}
+	}
+	
 	
 
 }
