@@ -20,6 +20,10 @@ public class MainService {
 			System.out.println("3? -> " + bstWithIntegers.search(3));//true
 			System.out.println("100? -> " + bstWithIntegers.search(100));//false
 			
+			bstWithIntegers.delete(5); //dzēšam pašu root, kam ir abi bērni
+			bstWithIntegers.print();
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

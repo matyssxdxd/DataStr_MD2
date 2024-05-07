@@ -177,22 +177,33 @@ public class MyBST<Ttype> {
 				parent.setRightChild(rightChild);
 				rightChild.setParent(parent);
 			}
+			//3. džēšajamam mezglam ir abi bērni
 			else if(tempNode.getLeftChild()!=null
 					&& tempNode.getRightChild()!=null)
 			{
 				//iet pa labo pusi un sameklē kreisāko bērnu
 				//TODO vai eksistē labias bērns root elementam
 				MyTreeNode temp2 = root.getRightChild();
-				while(temp2!=null)
+				while(temp2.getLeftChild()!=null)
 				{
 					temp2 = temp2.getLeftChild();
 				}
 				//temp2 - būs ar to vērtību, kas ir jāieliek ieks tempNode
+				tempNode.setElement(temp2.getElement());
+				
+				MyTreeNode parent = temp2.getParent();
+				if(parent.getLeftChild().equals(temp2))
+				{
+					parent.setLeftChild(null);
+				}
+				else if (parent.getRightChild().equals(temp2))
+				{
+					parent.setRightChild(null);
+				}
+				
 				
 			}
-			
-			
-			//3. džēšajama mezgls ir abi bērni
+				
 		}
 		// apakškoka sakne ir lielāks par elementu
 		if (
