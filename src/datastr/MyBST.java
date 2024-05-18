@@ -16,51 +16,62 @@ public class MyBST<Ttype> {
 
 	public void insert(Ttype element) {
 
-		if (isEmpty()) {
-			root = new MyTreeNode(element);
-			counter++;
-		}
-
-		else {
-			// izsaukt rekursīvo funkciju pirmo reizi
-			insertHelpRecursive(root, element);
-		}
+		root = insertHelpRecursive(root, element);
+		counter++;
 
 	}
 
-	private void insertHelpRecursive(MyTreeNode tempNode, Ttype element) {
-		// apakškoka sakne ir lielāks par elementu
-		if (((Comparable) tempNode.getElement()).compareTo(element) == 1) {
-			// kreisais bērns neeksistē
-			if (tempNode.getLeftChild() == null) {
-				MyTreeNode newNode = new MyTreeNode(element);
-				tempNode.setLeftChild(newNode);
-				newNode.setParent(tempNode);
-				counter++;
-			} // kreisais bērns eksistē
-			else {
-				insertHelpRecursive(tempNode.getLeftChild(), element);
-			}
+	private MyTreeNode<Ttype> insertHelpRecursive(MyTreeNode<Ttype> tempNode, Ttype element) {
+		// nav elementu
+		if (tempNode == null) {
+			return new MyTreeNode<>(element);
 		}
-		// saknes elements ir mazaks par element
-		else if (((Comparable) tempNode.getElement()).compareTo(element) == -1) {
-			// labais bērns neeksistē
-			if (tempNode.getRightChild() == null) {
-				MyTreeNode newNode = new MyTreeNode(element);
-				tempNode.setRightChild(newNode);
-				newNode.setParent(tempNode);
-				counter++;
-			}
-			// labais berns jau eksistē
-			else {
-				insertHelpRecursive(tempNode.getRightChild(), element);
-			}
+		// apakškoka sakne ir lielāks par elementu
+		if (((Comparable<Ttype>) tempNode.getElement()).compareTo(element) > 0) {
+			tempNode.setLeftChild(insertHelpRecursive(tempNode.getLeftChild(), element));
+			tempNode.getLeftChild().setParent(tempNode);
+		}
+		// saknes elements ir mazāks par elementu
+		else if (((Comparable<Ttype>) tempNode.getElement()).compareTo(element) < 0) {
+			tempNode.setRightChild(insertHelpRecursive(tempNode.getRightChild(), element));
+			tempNode.getRightChild().setParent(tempNode);
 		}
 		// šāds elements jau eksistē
 		else {
-			System.out.println("Šāds elements jau eksistē BST");
+			return tempNode;
 		}
+
+		tempNode.setHeight(Math.max(height(tempNode.getLeftChild()), height(tempNode.getRightChild())) + 1);
+
+		int balanceFactor = getBalanceFactor(tempNode);
+
+		// Left Left Case
+		if (balanceFactor > 1 && ((Comparable<Ttype>) tempNode.getLeftChild().getElement()).compareTo(element) > 0) {
+			return rightRotate(tempNode);
+		}
+
+		// Right Right Case
+		if (balanceFactor < -1 && ((Comparable<Ttype>) tempNode.getRightChild().getElement()).compareTo(element) < 0) {
+			return leftRotate(tempNode);
+		}
+
+		// Left Right Case
+		if (balanceFactor > 1 && ((Comparable<Ttype>) tempNode.getLeftChild().getElement()).compareTo(element) < 0) {
+			tempNode.setLeftChild(leftRotate(tempNode.getLeftChild()));
+			tempNode.getLeftChild().setParent(tempNode);
+			return rightRotate(tempNode);
+		}
+
+		// Right Left Case
+		if (balanceFactor < -1 && ((Comparable<Ttype>) tempNode.getRightChild().getElement()).compareTo(element) > 0) {
+			tempNode.setRightChild(rightRotate(tempNode.getRightChild()));
+			tempNode.getRightChild().setParent(tempNode);
+			return leftRotate(tempNode);
+		}
+
+		return tempNode;
 	}
+
 
 	public void print() throws Exception {
 		if (isEmpty())
@@ -72,20 +83,11 @@ public class MyBST<Ttype> {
 
 	// TODO izveidot mājās arī PostOrder un InOrder
 	private void printHelpRecursivePreOrder(MyTreeNode tempNode) {
-		// Root - Left - Right
-
-		// ROOT
 		System.out.print("P: " + tempNode.getElement());
-
-		// LEFT
-		// ja eksiste kreisais bērns
 		if (tempNode.getLeftChild() != null) {
 			System.out.print(" -> LC: " + tempNode.getLeftChild().getElement() + " [" + tempNode.getElement() + "];");
 			printHelpRecursivePreOrder(tempNode.getLeftChild());
 		}
-
-		// RIGHT
-		// ja eksistē labais bērns
 		if (tempNode.getRightChild() != null) {
 			System.out.print(" -> RC: " + tempNode.getRightChild().getElement() + " [" + tempNode.getElement() + "];");
 			printHelpRecursivePreOrder(tempNode.getRightChild());
@@ -139,7 +141,7 @@ public class MyBST<Ttype> {
 		
 	}
 	
-	private void deleteHelpRecursive(MyTreeNode tempNode, Ttype element ) {
+	private MyTreeNode<Ttype> deleteHelpRecursive(MyTreeNode tempNode, Ttype element ) {
 		//esam nonakusi līdz elementam, kuri gribam dzēst
 		if (tempNode.getElement().equals(element))
 		{
@@ -223,11 +225,101 @@ public class MyBST<Ttype> {
 				deleteHelpRecursive(tempNode.getRightChild(), element);
 			}
 		}
+
+		tempNode.setHeight(Math.max(height(tempNode.getLeftChild()), height(tempNode.getRightChild())) + 1);
+		int balanceFactor = getBalanceFactor(tempNode);
+		if (balanceFactor > 1) {
+			if (getBalanceFactor(tempNode.getLeftChild()) >= 0) {
+				return rightRotate(tempNode);
+			} else {
+				tempNode.setLeftChild(leftRotate(tempNode.getLeftChild()));
+				return rightRotate(tempNode);
+			}
+		}
+		if (balanceFactor < -1) {
+			if (getBalanceFactor(tempNode.getRightChild()) <= 0) {
+				return leftRotate(tempNode);
+			} else {
+				tempNode.setRightChild(rightRotate(tempNode.getRightChild()));
+				return leftRotate(tempNode);
+			}
+		}
+		return tempNode;
 		
 
 	}
 	
-	
-	
+	private int height(MyTreeNode<Ttype> node) {
+		if (node == null)
+			return 0;
+		return node.getHeight();
+	}
 
+	private MyTreeNode<Ttype> rightRotate(MyTreeNode<Ttype> y) {
+		MyTreeNode<Ttype> x = y.getLeftChild();
+		MyTreeNode<Ttype> T2 = x.getRightChild();
+
+		x.setRightChild(y);
+		y.setLeftChild(T2);
+
+		x.setParent(y.getParent());
+		y.setParent(x);
+		if (T2 != null) {
+			T2.setParent(y);
+		}
+
+		y.setHeight(Math.max(height(y.getLeftChild()), height(y.getRightChild())) + 1);
+		x.setHeight(Math.max(height(x.getLeftChild()), height(x.getRightChild())) + 1);
+
+		return x;
+	}
+
+	private MyTreeNode<Ttype> leftRotate(MyTreeNode<Ttype> x) {
+		MyTreeNode<Ttype> y = x.getRightChild();
+		MyTreeNode<Ttype> T2 = y.getLeftChild();
+
+		y.setLeftChild(x);
+		x.setRightChild(T2);
+
+		y.setParent(x.getParent());
+		x.setParent(y);
+		if (T2 != null) {
+			T2.setParent(x);
+		}
+
+		x.setHeight(Math.max(height(x.getLeftChild()), height(x.getRightChild())) + 1);
+		y.setHeight(Math.max(height(y.getLeftChild()), height(y.getRightChild())) + 1);
+
+		return y;
+	}
+
+
+	public int getBalanceFactor(MyTreeNode<Ttype> node) {
+		if (node == null)
+			return 0;
+		return height(node.getLeftChild()) - height(node.getRightChild());
+	}
+
+
+	// https://www.programiz.com/dsa/avl-tree
+	private void printTree(MyTreeNode<Ttype> currPtr, String indent, boolean last) {
+		if (currPtr != null) {
+			System.out.print(indent);
+			if (last) {
+				System.out.print("R----");
+				indent += "   ";
+			} else {
+				System.out.print("L----");
+				indent += "|  ";
+			}
+			System.out.println(currPtr.getElement());
+			printTree(currPtr.getLeftChild(), indent, false);
+			printTree(currPtr.getRightChild(), indent, true);
+		}
+	}
+
+	public void printCute() {
+		printTree(root, "", true);
+
+	}
 }

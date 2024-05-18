@@ -1,0 +1,63 @@
+
+	java:S112N"FDefine and throw a dedicated exception instead of using a generic one.(øş¤ùÿÿÿÿ8ˆİªİø1J$0a335a40-87b3-4469-a8de-15d49479bcfb
+ˆ	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(€€À³8ˆİªİø1J$c8f4c3e6-902f-48c3-b1ca-d8468aa84298
+	java:S112f"FDefine and throw a dedicated exception instead of using a generic one.(Ÿêışÿÿÿÿ8ˆİªİø1J$ee5e2264-7189-428e-ba90-b48db7793fbe
+‡	java:S112c"FDefine and throw a dedicated exception instead of using a generic one.(¹ØÉH8ˆİªİø1J$8cd1e032-acbe-44b8-94c9-141f1c3b4447
+‰	java:S112ˆ"FDefine and throw a dedicated exception instead of using a generic one.(»¦€ÿ8ˆİªİø1J$ba16e6fa-1c9b-4750-8ba5-0dabd515a13b
+	java:S112†"FDefine and throw a dedicated exception instead of using a generic one.(ììÕ¸şÿÿÿÿ8ˆİªİø1J$a44a0a3b-a1de-4494-ad04-031b51d6917f
+r
+java:S3740"/Provide the parametrized type for this generic.(ìóË¦8²ÑÁİø1J$0cebd52f-ebcf-4a46-98d1-9a4a77c87cd9
+r
+java:S3740U"/Provide the parametrized type for this generic.(©Ó·í8²ÑÁİø1J$c63366bc-5155-4ea5-8f53-b6176da18f57
+w
+java:S3740k"/Provide the parametrized type for this generic.(¸¼Èñøÿÿÿÿ8²ÑÁİø1J$a7e24331-23b0-4d20-8822-d245c195895e
+s
+java:S3740"/Provide the parametrized type for this generic.(’—Û‰8²ÑÁİø1J$2fba13c4-5707-46a8-84ba-191f39202b6c
+x
+java:S3740˜"/Provide the parametrized type for this generic.(¢ÁÜøÿÿÿÿ8²ÑÁİø1J$b7620a71-4070-4eb6-9371-571574a34881
+x
+java:S3740¨"/Provide the parametrized type for this generic.(¢ÁÜøÿÿÿÿ8²ÑÁİø1J$19d9d871-96bb-4e2d-a5b7-c76e53805877
+x
+java:S3740©"/Provide the parametrized type for this generic.(Ï¿Ìùøÿÿÿÿ8³ÑÁİø1J$76880f5e-d473-4e77-89ee-17781145d805
+x
+java:S3740±"/Provide the parametrized type for this generic.(¢ÁÜøÿÿÿÿ8³ÑÁİø1J$4af77171-825a-44ab-b765-15c8365596c9
+x
+java:S3740²"/Provide the parametrized type for this generic.(ŸğÇ¾ûÿÿÿÿ8³ÑÁİø1J$f49cae5e-2bcb-427a-937b-52db91c2e09f
+s
+java:S3740¼"/Provide the parametrized type for this generic.(·²Î8³ÑÁİø1J$6c9c9e62-b20d-4e30-9336-ecf13a568339
+s
+java:S3740Ä"/Provide the parametrized type for this generic.(ÅıÚ³8³ÑÁİø1J$81686044-cd89-4f1e-87b1-8fca1d948b7d
+r
+java:S1066{"/Merge this if statement with the enclosing one.(‰¶ÁÛ8Šİªİø1J$e090f446-1b71-4c01-b406-093a91504e77
+s
+java:S1066ß"/Merge this if statement with the enclosing one.(‰¶ÁÛ8Šİªİø1J$aaf6c55e-36ef-4cbf-ae2f-367823a756f4
+”	java:S117„"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÑÒÀ8†¬¹İø1J$cdac2e36-b7aa-412f-8078-114ad66cd160
+”	java:S117—"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã¦›Ş8‡¬¹İø1J$2696e0d0-6eb0-452a-aff4-5e8c536b0ead
+	java:S119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(Ï±Û²üÿÿÿÿ8’İªİø1J$e476cb02-d75d-4fc7-b263-e30c29f56845
+u
+java:S1135T"2Complete the task associated to this TODO comment.(äÔ—Ü8İªİø1J$6fdf3596-4a87-429e-985e-4c6b3234468c
+r	java:S106V"+Replace this use of System.out by a logger.(º÷úÿÿÿÿ8İªİø1J$b8f1ab59-f78b-44d7-8b78-184e4db89926
+m	java:S106X"+Replace this use of System.out by a logger.(º¦³¥8İªİø1J$8a90fbe0-b1f8-4984-9193-83388e39eed5
+l	java:S106\"+Replace this use of System.out by a logger.(ÑÓÆ@8Ÿİªİø1J$380e0838-a416-4a09-b62e-63d0d47c98fd
+u
+java:S1135a"2Complete the task associated to this TODO comment.(…ïœ†8Ÿİªİø1J$af68deda-9c01-4f83-82fa-55a9d39fcc94
+r
+java:S2200p"/Only the sign of the result should be examined.(ğÀĞ›8 İªİø1J$c39fd4c0-b13d-4583-adc2-41c8bd87614e
+w
+java:S2200y"/Only the sign of the result should be examined.(Ó¥¨ûÿÿÿÿ8¡İªİø1J$da66ddec-1e63-4e74-b8fb-e537ab8665ce
+v
+java:S1135Š"2Complete the task associated to this TODO comment.(¿¦Œ‡8ªİªİø1J$06018ece-58c1-4636-b317-57cbc2186fe8
+–
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(’—Û‰8ªİªİø1J$9361e567-131b-4f77-a78d-d99b317795a6
+v
+java:S1135»"2Complete the task associated to this TODO comment.(Šë›Ê8®İªİø1J$7a92323a-e2d6-4ecc-9982-a48a9708f5bd
+s
+java:S2200Ô"/Only the sign of the result should be examined.(ğÀĞ›8®İªİø1J$b17ccdb2-aab3-4c79-89e5-cac1edeb04a1
+x
+java:S2200İ"/Only the sign of the result should be examined.(Ó¥¨ûÿÿÿÿ8¯İªİø1J$c8f9aa9f-a473-4ac5-8adb-1ecdd21ede91
+n	java:S106³"+Replace this use of System.out by a logger.(Éğ8¹›ºİø1J$9c2e7f14-3151-438a-b5f1-6bc57f293135
+s	java:S106µ"+Replace this use of System.out by a logger.(Œ“¡Æıÿÿÿÿ8¹›ºİø1J$4d230d4e-cbb7-439f-b3c5-636478f0174e
+s	java:S106¸"+Replace this use of System.out by a logger.(üøŒ„ûÿÿÿÿ8º›ºİø1J$fab1b7e8-c950-48be-9ce4-b76fbc929f49
+s	java:S106»"+Replace this use of System.out by a logger.(ÁäÍİıÿÿÿÿ8º›ºİø1J$f6866c75-8dd5-48ee-9d97-746afb0e0d56
+Š
+java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 82 to 64, Complexity from 23 to 14, Nesting Level from 3 to 2, Number of Variables from 10 to 6.(’—Û‰8ïÒ°İø1J$fb171c8d-7bc9-465b-9ae7-a47cd1bb3052

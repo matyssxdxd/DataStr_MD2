@@ -6,6 +6,7 @@ public class MyTreeNode<Ttype> {
 	private MyTreeNode parent = null;
 	private MyTreeNode rightChild = null;
 	private MyTreeNode leftChild = null;
+	private int height = 1;
 	//2. get and set
 	public Ttype getElement() {
 		return element;
@@ -34,7 +35,13 @@ public class MyTreeNode<Ttype> {
 	public void setLeftChild(MyTreeNode leftChild) {
 		this.leftChild = leftChild;
 	}
-	
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
 	//3. constructors
 	public MyTreeNode(Ttype element) {
 		setElement(element);

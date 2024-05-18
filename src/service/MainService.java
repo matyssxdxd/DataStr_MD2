@@ -15,13 +15,11 @@ public class MainService {
 		bstWithIntegers.insert(6);
 		
 		try {
-			bstWithIntegers.print();
-			System.out.println();
-			System.out.println("3? -> " + bstWithIntegers.search(3));//true
-			System.out.println("100? -> " + bstWithIntegers.search(100));//false
-			
-			bstWithIntegers.delete(5); //dzēšam pašu root, kam ir abi bērni
-			bstWithIntegers.print();
+			bstWithIntegers.printCute();
+			bstWithIntegers.delete(5);
+			bstWithIntegers.printCute();
+			bstWithIntegers.insert(5);
+			bstWithIntegers.printCute();
 			
 			
 		} catch (Exception e) {
