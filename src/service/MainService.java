@@ -1,5 +1,7 @@
 package service;
 
+import datastr.MyBET;
+import datastr.MyBETreeNode;
 import datastr.MyBST;
 
 public class MainService {
@@ -26,6 +28,10 @@ public class MainService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		MyBET test = new MyBET();
+		test.build("2+3*5+4/2");
+		System.out.println(test.evaluate());
 		
 	}
 

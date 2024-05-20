@@ -137,7 +137,7 @@ public class MyBST<Ttype> {
 
 		//TODO pārliecināties, ka ir tikai root!
 		//izsaukt rekurtsīvo dzēšanas funkciju
-		deleteHelpRecursive(root, element);
+		root = deleteHelpRecursive(root, element);
 		
 	}
 	
