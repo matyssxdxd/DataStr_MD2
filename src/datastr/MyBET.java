@@ -59,10 +59,10 @@ public class MyBET {
         }
     }
 
-    public double evaluate(MyBETreeNode node) {
+    private double evaluate(MyBETreeNode node) {
         if (node.left == null && node.right == null) return toDigit(node.element);
         else {
-            double result = 0.0;
+            double result;
             double left = evaluate(node.left);
             double right = evaluate(node.right);
             char operator = node.element;
@@ -83,12 +83,10 @@ public class MyBET {
         return evaluate(peek());
     }
 
-    static String reverse(char str[], int start, int end)
+    private String reverse(char str[], int start, int end)
     {
-        // Temporary variable to store character
         char temp;
         while (start < end) {
-            // Swapping the first and last character
             temp = str[start];
             str[start] = str[end];
             str[end] = temp;
@@ -98,7 +96,7 @@ public class MyBET {
         return String.valueOf(str);
     }
 
-    static boolean isalpha(char c)
+    private boolean isAlpha(char c)
     {
         if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z') {
             return true;
@@ -106,34 +104,24 @@ public class MyBET {
         return false;
     }
 
-    // Function to check if the character is digit
-    static boolean isdigit(char c)
+    private boolean isOperator(char c)
     {
-        if (c >= '0' && c <= '9') {
-            return true;
-        }
-        return false;
+        return (!isAlpha(c) && !isDigit(c));
     }
 
-    // Function to check if the character is an operator
-    static boolean isOperator(char c)
+    private int getPriority(char c)
     {
-        return (!isalpha(c) && !isdigit(c));
-    }
-
-    static int getPriority(char C)
-    {
-        if (C == '-' || C == '+')
+        if (c == '-' || c == '+')
             return 1;
-        else if (C == '*' || C == '/')
+        else if (c == '*' || c == '/')
             return 2;
-        else if (C == '^')
+        else if (c == '^')
             return 3;
 
         return 0;
     }
 
-    static String infixToPostfix(char[] infix1)
+    private String infixToPostfix(char[] infix1)
     {
         String infix = '(' + String.valueOf(infix1) + ')';
 
@@ -142,32 +130,19 @@ public class MyBET {
         String output = "";
 
         for (int i = 0; i < l; i++) {
-
-            // If the scanned character is an
-            // operand, add it to output.
-            if (isalpha(infix.charAt(i))
-                    || isdigit(infix.charAt(i)))
+            if (isAlpha(infix.charAt(i))
+                    || isDigit(infix.charAt(i)))
                 output += infix.charAt(i);
-
-                // If the scanned character is an
-                // ‘(‘, push it to the stack.
             else if (infix.charAt(i) == '(')
                 char_stack.add('(');
-
-                // If the scanned character is an
-                // ‘)’, pop and output from the stack
-                // until an ‘(‘ is encountered.
             else if (infix.charAt(i) == ')') {
                 while (char_stack.peek() != '(') {
                     output += char_stack.peek();
                     char_stack.pop();
                 }
 
-                // Remove '(' from the stack
                 char_stack.pop();
             }
-
-            // Operator found
             else {
                 if (isOperator(char_stack.peek())) {
                     while (
@@ -180,8 +155,6 @@ public class MyBET {
                         output += char_stack.peek();
                         char_stack.pop();
                     }
-
-                    // Push current Operator on stack
                     char_stack.add(infix.charAt(i));
                 }
             }
@@ -192,19 +165,13 @@ public class MyBET {
         return output;
     }
 
-    static String infixToPrefix(char[] infix)
+    private String infixToPrefix(char[] infix)
     {
-        // Reverse String and replace ( with ) and vice
-        // versa Get Postfix Reverse Postfix
         int l = infix.length;
-
-        // Reverse infix
         String infix1 = reverse(infix, 0, l - 1);
         infix = infix1.toCharArray();
 
-        // Replace ( with ) and vice versa
         for (int i = 0; i < l; i++) {
-
             if (infix[i] == '(') {
                 infix[i] = ')';
                 i++;
@@ -216,8 +183,6 @@ public class MyBET {
         }
 
         String prefix = infixToPostfix(infix);
-
-        // Reverse postfix
         prefix = reverse(prefix.toCharArray(), 0, l - 1);
 
         return prefix;

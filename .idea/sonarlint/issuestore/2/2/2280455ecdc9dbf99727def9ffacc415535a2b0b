@@ -1,30 +1,23 @@
 
-b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Úõ¹8¿ìç§ù1
-a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ØˆÄO8¿ìç§ù1
-u	java:S127Ò"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Àìç§ù1
-u	java:S127Ö"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Àìç§ù1
-r	java:S117|"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÏÔÆùÿÿÿÿ8Àìç§ù1
-n	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥¹ñ¢8Àìç§ù1
-:
-java:S1643–"Use a StringBuilder instead.(¥”«8Áìç§ù1
-:
-java:S1643¢"Use a StringBuilder instead.(øÈ±8Áìç§ù1
-:
-java:S1643´"Use a StringBuilder instead.(øÈ±8Áìç§ù1
-:
-java:S1643¾"Use a StringBuilder instead.(Éº·Á8Áìç§ù1
-v
-java:S1845n"TRename method "isdigit" to prevent any misunderstanding/clash with method "isDigit".(àş™ûÿÿÿÿ8ïíç§ù1
-n
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(¥¹ñ¢8ñíç§ù1
-G	java:S1063"+Replace this use of System.out by a logger.(öØÈ¢8öíç§ù1
-\
-java:S1854A":Remove this useless assignment to local variable "result".(×Û­®ùÿÿÿÿ8øíç§ù1
-L
-java:S1197V"*Move the array designators [] to the type.(ÇÑÌÄüÿÿÿÿ8úíç§ù1
-c
-java:S1126g"AReplace this if-then-else statement by a single return statement.(¯îÎÒûÿÿÿÿ8ûíç§ù1
-c
-java:S1126p"AReplace this if-then-else statement by a single return statement.(¡›Ê¦şÿÿÿÿ8üíç§ù1
-p
-java:S3776ˆ"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÎğÂİ8ıíç§ù1
+ˆ	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Úõ¹8¿ìç§ù1J$ab046fb2-b2fd-4074-9c6d-f420ef8d7a25
+‡	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ØˆÄO8¿ìç§ù1J$4f06de53-b371-4e59-bd85-0503047e39f9
+›	java:S127±"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Àìç§ù1J$60aaecba-a690-48f4-8a3f-df634ed335db
+›	java:S127µ"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8Àìç§ù1J$9a343726-1ff2-40f4-b324-bb8f87007553
+”	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥¹ñ¢8Àìç§ù1J$8463448a-3d33-4d74-90a8-09fcbb28f35f
+`
+java:S1643‡"Use a StringBuilder instead.(¥”«8Áìç§ù1J$cf4a334e-72eb-4302-ad59-4312c0c11587
+`
+java:S1643Œ"Use a StringBuilder instead.(øÈ±8Áìç§ù1J$a3030b42-3ba9-4811-a731-0d00cc390485
+`
+java:S1643›"Use a StringBuilder instead.(øÈ±8Áìç§ù1J$fa171097-39f9-4780-b367-babd343e59cf
+`
+java:S1643£"Use a StringBuilder instead.(Éº·Á8Áìç§ù1J$471da071-e143-4f31-8f9a-dc6255ec5830
+”
+java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(¥¹ñ¢8ñíç§ù1J$189315b0-a43c-4f24-b5b7-596737f01335
+m	java:S1063"+Replace this use of System.out by a logger.(öØÈ¢8öíç§ù1J$2530b805-8769-46ee-8618-af378d4df78b
+m
+java:S1197V"*Move the array designators [] to the type.(øúØÈ8úíç§ù1J$9dd55474-7900-4509-9b19-35960bc67bf2
+‰
+java:S1126e"AReplace this if-then-else statement by a single return statement.(¯îÎÒûÿÿÿÿ8ûíç§ù1J$ffd2bf1c-490b-4524-af75-d553085e3b5d
+š
+java:S3776|"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ü¹¨şÿÿÿÿ8ıíç§ù1J$f0993289-38c2-47e8-b5b3-ead682fc7ef4
